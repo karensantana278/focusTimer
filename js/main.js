@@ -40,7 +40,7 @@ btnStart.addEventListener('click', function(){
 
 btnSet.addEventListener('click', function(){
     let minutes = Number(prompt('Quantos minutos?'))
-    while(minutes <= 0 || minutes >= 60 || isNaN(minutes)){
+    while(minutes <= 0 || minutes > 60 || isNaN(minutes)){
         minutes = prompt('Digite minutos entre 1 e 60')
     }
     displayMinutes.textContent = formatTime(minutes)
