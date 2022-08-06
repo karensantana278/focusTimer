@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --bg-color: #121214;
+  
+    --base-color: 194;
+    --bg-primary-light: hsla(var(--base-color), 97%, 31%);
+    --primary-color: hsl(var(--base-color), 97%, 31%);
+    --background-card: #E1E1E6;
+    --text-color: #323238;
+  
+    font-size: 62.5%;
+  }
+  
+  body {
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif;
+    display: grid;
+    min-height: 100vh;
+  }
+  
+  button {
+    background-color: transparent;
+    border: none;
+  
+    cursor: pointer;
+  }
+  
+  .hide {
+    display: none;
+  }
+  
+  .play svg path,
+  .pause svg path,
+  .stop svg path,
+  .set svg path,
+  .plus svg path,
+  .minus svg path,
+  .tree svg path,
+  .cloud svg path,
+  .store svg path,
+  .fire svg path
+  {
+    fill: var(--text-color);
+  }
+  
+  #controls button.active svg path{
+    fill: var(--primary-color);
+  }
+
+  button svg {
+    width: clamp(3.2rem, 2rem + 12vw, 6.4rem);
+  }
+
+  
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 19rem;
+    flex-wrap: wrap;
+  }
+  
+  #timer {
+    font-size: clamp(10rem, 4rem + 10vw, 8.8rem);
+    font-weight: bold;
+    display: flex;
+    margin-bottom: 1.6rem;
+  }
+  
+  #controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3.2rem;
+  
+    border-radius: 9999px;
+  
+    width: clamp(10rem, 10rem + 30vw, 22.8rem);
+    height: clamp(8rem, 5rem + 10vw, 10.8rem)
+  }
+
+  .sounds{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+  }
+
+  .sound-card{
+    background-color: var(--background-card);
+    padding: 48px;
+    border-radius: 2.4rem;
+    cursor: pointer;
+  }
+
+  .sound-card.active{
+    background-color: var(--primary-color); 
+  }
+
+  .sound-card.active svg path{
+    fill: white;
+  }
+
+  @media(max-width: 900px){
+    main{
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    #controls{
+        margin: 0 auto;
+        gap: 1.5rem;
+    }
+  }
