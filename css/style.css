@@ -186,8 +186,8 @@
 
     .color-mode{
       position: absolute;
-      right: 1rem;
-      top: 2rem;
+      right: 0;
+      top: 1rem;
     }
 
     main{
