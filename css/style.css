@@ -195,6 +195,10 @@
         gap: 4rem;
     }
 
+    .sounds{
+      gap:  15px;
+    }
+
     #controls{
         margin: 0 auto;
         gap: 1.5rem;
