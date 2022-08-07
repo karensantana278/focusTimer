@@ -18,10 +18,14 @@ let forestSound = new Audio("../audio/floresta.wav");
 let rainSound = new Audio("../audio/chuva.wav");
 let marketSound = new Audio("../audio/cafeteria.wav");
 let fireSound = new Audio("../audio/lareira.wav");
-let forestCard = document.querySelector('.tree')
-let rainCard = document.querySelector('.cloud')
-let marketCard = document.querySelector('.store')
-let fireCard = document.querySelector('.fire')
+let forestCard = document.querySelector('.card-forest')
+let rainCard = document.querySelector('.card-rain')
+let marketCard = document.querySelector('.card-market')
+let fireCard = document.querySelector('.card-fire')
+let forestVol = document.querySelector('#forestVol')
+let rainVol = document.querySelector('#rainVol')
+let marketVol = document.querySelector('#marketVol')
+let fireVol = document.querySelector('#fireVol')
 
 
 forestSound.loop = true;
@@ -117,44 +121,58 @@ function resetTime(){
 }
 
 forestCard.addEventListener('click', function(){
-    if(forestCard.classList.contains('active')){
-        forestCard.classList.remove('active')
+    if(forestCard.parentElement.classList.contains('active')){
+        forestCard.parentElement.classList.remove('active')
         forestSound.pause()
     }else{
-        forestCard.classList.add('active')
+        forestCard.parentElement.classList.add('active')
         forestSound.play()
-    } 
+    }   
 })
 
 rainCard.addEventListener('click', function(){
-    if(rainCard.classList.contains('active')){
-        rainCard.classList.remove('active')
+    if(rainCard.parentElement.classList.contains('active')){
+        rainCard.parentElement.classList.remove('active')
         rainSound.pause()
     }else{
-        rainCard.classList.add('active')
+        rainCard.parentElement.classList.add('active')
         rainSound.play()
     } 
 })
 
 marketCard.addEventListener('click', function(){
-    if(marketCard.classList.contains('active')){
-        marketCard.classList.remove('active')
+    if(marketCard.parentElement.classList.contains('active')){
+        marketCard.parentElement.classList.remove('active')
         marketSound.pause()
     }else{
-        marketCard.classList.add('active')
+        marketCard.parentElement.classList.add('active')
         marketSound.play()
     } 
 })
 
 fireCard.addEventListener('click', function(){
-    if(fireCard.classList.contains('active')){
-        fireCard.classList.remove('active')
+    if(fireCard.parentElement.classList.contains('active')){
+        fireCard.parentElement.classList.remove('active')
         fireSound.pause()
     }else{
-        fireCard.classList.add('active')
+        fireCard.parentElement.classList.add('active')
         fireSound.play()
     } 
 })
 
 
+forestVol.addEventListener('input', function(){
+    forestSound.volume = forestVol.value
+})
 
+rainVol.addEventListener('input', function(){
+    rainSound.volume = rainVol.value
+})
+
+marketVol.addEventListener('input', function(){
+    marketSound.volume = marketVol.value
+})
+
+fireVol.addEventListener('input', function(){
+    fireSound.volume = fireVol.value
+})
