@@ -26,7 +26,9 @@ let forestVol = document.querySelector('#forestVol')
 let rainVol = document.querySelector('#rainVol')
 let marketVol = document.querySelector('#marketVol')
 let fireVol = document.querySelector('#fireVol')
-
+let main = document.querySelector('main')
+let lightButton = document.querySelector('.light-mode')
+let darkButton = document.querySelector('.dark-mode')
 
 forestSound.loop = true;
 rainSound.loop = true;
@@ -78,6 +80,74 @@ btnMinus.addEventListener("click", function(){
     }
 })
 
+forestCard.addEventListener('click', function(){
+    if(forestCard.parentElement.classList.contains('active')){
+        forestCard.parentElement.classList.remove('active')
+        forestSound.pause()
+    }else{
+        forestCard.parentElement.classList.add('active')
+        forestSound.play()
+    }   
+})
+
+rainCard.addEventListener('click', function(){
+    if(rainCard.parentElement.classList.contains('active')){
+        rainCard.parentElement.classList.remove('active')
+        rainSound.pause()
+    }else{
+        rainCard.parentElement.classList.add('active')
+        rainSound.play()
+    } 
+})
+
+marketCard.addEventListener('click', function(){
+    if(marketCard.parentElement.classList.contains('active')){
+        marketCard.parentElement.classList.remove('active')
+        marketSound.pause()
+    }else{
+        marketCard.parentElement.classList.add('active')
+        marketSound.play()
+    } 
+})
+
+fireCard.addEventListener('click', function(){
+    if(fireCard.parentElement.classList.contains('active')){
+        fireCard.parentElement.classList.remove('active')
+        fireSound.pause()
+    }else{
+        fireCard.parentElement.classList.add('active')
+        fireSound.play()
+    } 
+})
+
+forestVol.addEventListener('input', function(){
+    forestSound.volume = forestVol.value
+})
+
+rainVol.addEventListener('input', function(){
+    rainSound.volume = rainVol.value
+})
+
+marketVol.addEventListener('input', function(){
+    marketSound.volume = marketVol.value
+})
+
+fireVol.addEventListener('input', function(){
+    fireSound.volume = fireVol.value
+})
+
+lightButton.addEventListener('click', function(){
+    lightButton.classList.add('hide')
+    darkButton.classList.remove('hide')
+    main.classList.add('dark')
+})
+
+darkButton.addEventListener('click', function(){
+    lightButton.classList.remove('hide')
+    darkButton.classList.add('hide')
+    main.classList.remove('dark')
+})
+
 function formatTime(time){
     return String(time).padStart(2, "0")
 }
@@ -119,60 +189,3 @@ function resetTime(){
     displayMinutes.textContent = formatTime(0)
     kitchenTimerAudio.play()
 }
-
-forestCard.addEventListener('click', function(){
-    if(forestCard.parentElement.classList.contains('active')){
-        forestCard.parentElement.classList.remove('active')
-        forestSound.pause()
-    }else{
-        forestCard.parentElement.classList.add('active')
-        forestSound.play()
-    }   
-})
-
-rainCard.addEventListener('click', function(){
-    if(rainCard.parentElement.classList.contains('active')){
-        rainCard.parentElement.classList.remove('active')
-        rainSound.pause()
-    }else{
-        rainCard.parentElement.classList.add('active')
-        rainSound.play()
-    } 
-})
-
-marketCard.addEventListener('click', function(){
-    if(marketCard.parentElement.classList.contains('active')){
-        marketCard.parentElement.classList.remove('active')
-        marketSound.pause()
-    }else{
-        marketCard.parentElement.classList.add('active')
-        marketSound.play()
-    } 
-})
-
-fireCard.addEventListener('click', function(){
-    if(fireCard.parentElement.classList.contains('active')){
-        fireCard.parentElement.classList.remove('active')
-        fireSound.pause()
-    }else{
-        fireCard.parentElement.classList.add('active')
-        fireSound.play()
-    } 
-})
-
-
-forestVol.addEventListener('input', function(){
-    forestSound.volume = forestVol.value
-})
-
-rainVol.addEventListener('input', function(){
-    rainSound.volume = rainVol.value
-})
-
-marketVol.addEventListener('input', function(){
-    marketSound.volume = marketVol.value
-})
-
-fireVol.addEventListener('input', function(){
-    fireSound.volume = fireVol.value
-})

@@ -12,6 +12,9 @@
     --primary-color: hsl(var(--base-color), 97%, 31%);
     --background-card: #E1E1E6;
     --text-color: #323238;
+    --text-color-dark: #c4c4cc;
+    --background-card-dark: #29292e;
+   
   
     font-size: 62.5%;
   }
@@ -33,20 +36,37 @@
   .hide {
     display: none;
   }
-  
-  .play svg path,
-  .pause svg path,
-  .stop svg path,
-  .set svg path,
-  .plus svg path,
-  .minus svg path,
-  .sound-card svg path,
-  .sound-card svg path,
-  .sound-card svg path,
-  .sound-card svg path
-  {
-    fill: var(--text-color);
+
+  /* dark mode style */
+  .dark{
+    background-color: var(--bg-color)
   }
+
+  .dark #timer span{
+    color: white;
+  }
+
+  .dark svg path{
+    fill: var(--text-color-dark)
+  }
+
+  .dark .sound-card{
+    background-color: var(--background-card-dark)
+  }
+
+  .dark .sound-card input{
+    background: white;
+  }
+
+  .dark .sound-card  input::-webkit-slider-thumb {
+    background: white;
+  }
+
+  .dark .sound-card  input::-moz-range-thumb{
+    background: white;
+  }
+  
+  
   
   #controls button.active svg path{
     fill: var(--primary-color);
@@ -63,6 +83,10 @@
     align-items: center;
     gap: 19rem;
     flex-wrap: wrap;
+  }
+
+  main svg path{
+    fill: var(--text-color);
   }
   
   #timer {
@@ -152,7 +176,20 @@
     background: white;
   }
 
+  .color-mode{
+    position: absolute;
+    right: 6.4rem;
+    top: 6.4rem;
+  }
+
   @media(max-width: 900px){
+
+    .color-mode{
+      position: absolute;
+      right: 1rem;
+      top: 2rem;
+    }
+
     main{
         flex-direction: column;
         gap: 4rem;
